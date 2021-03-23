@@ -53,14 +53,11 @@ def same_row_attacks(col, state, n):
 	for c in range(index + 1, n):
 		if row_of_the_queen == state[c]:
 			number_of_row_attacks += 1
-	# for r in range(row + 1, self.n):
-	# 	for c in range(col + 1, self.n):
 	return number_of_row_attacks
 
 
 # given the assumption that every column has exactly one queen, there is no possible way to
 # have 2 or more queens on the same column
-#def same_col(self, row, col):
 
 # input: col = the column of the queen of interest
 def same_diagonal_attacks(col, state, n):
@@ -82,16 +79,11 @@ def same_diagonal_attacks(col, state, n):
 	if diagonal_column >= n:
 		diagonal_row = diagonal_column - (n - 1)
 		diagonal_column = n - 1
-		#print('diagonal_column = ' + str(diagonal_column))
 	else:
 		diagonal_row = 0	
 
 	while diagonal_column > col_of_the_queen:
 		row = int(state[diagonal_column]) - 1 
-		#print(diagonal_column)
-		#print(row)
-		#print(diagonal_row)
-		
 		if str(row) == str(diagonal_row):
 			number_of_diagonal_attacks += 1
 
@@ -100,13 +92,10 @@ def same_diagonal_attacks(col, state, n):
 		#print('--------------------')
 
 
-	#print(number_of_diagonal_attacks)
 	######################################################################################
 	# check lower diagonal (one that extends downwards and rightwards)
 	diagonal_column = (n - 1 - row_of_the_queen) + col_of_the_queen 
 	if diagonal_column >= n:
-		#print('diagonal_row = ' + str(diagonal_row))
-		#print('diagonal_column = ' + str(diagonal_column))
 		diagonal_row = n - (diagonal_column - (n - 1)) - 1			
 		diagonal_column = n - 1
 
@@ -115,26 +104,17 @@ def same_diagonal_attacks(col, state, n):
 
 	while diagonal_column > col_of_the_queen:
 		row = int(state[diagonal_column]) - 1
-		# print(diagonal_column)
-		# print(row)
-		# print(diagonal_row)
-
 		if str(row) == str(diagonal_row):
 			number_of_diagonal_attacks += 1
 
 		diagonal_column -= 1
 		diagonal_row -= 1
 
-		#print('-----------------------------------')
-
-	#print(number_of_diagonal_attacks)
-
 	return number_of_diagonal_attacks
 
 # arguments:
 # takes in the column and row of the queen and calculates the number of attacks on it
 #    in the current state
-
 def number_of_attacks(col, state, n):
 	number_of_attacks = 0
 
